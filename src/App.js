@@ -9,7 +9,7 @@ import StructuresApp from './Pages/StructuresApp';
 
 function App() {
   return (
-    <div className="App" style={{backgroundColor:"#C2E0FF",height:"100vh"}} >
+    <div className="App" style={{backgroundColor:"#C2E0FF",minHeight:"100vh"}} >
       <NavigationBar/>
       <Router>
         <Routes>

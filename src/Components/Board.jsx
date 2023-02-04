@@ -1,26 +1,34 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
 import ListNode from './list/ListNode'
+import listImg from '../Images/array.png'
 
-function Board() {
+function Board({data}) {
+    //let boardHeight=(data<8)?"450":`${516+((data-8)+40*(data-8))}`
     const style={
         backgroundColor:"#CCD2D8",
-        height:"70vh"
+        display:"flex",
+        minHeight:'450px',
+        paddingTop:'15px'
     }
-    const [arrayNumbers, setArrayNumbers] = useState([])
-  
+    const listImgStyle={
+      height:'100px',
+      width:'200px',
+      position:'relative',
+      left:'370px'
+    }
+    const lengthPosition={
+      position:'relative',
+      left:'390px',
+      bottom:'65px'
+    }
   return (
     <Container style={style} className="rounded-bottom d-flex flex-column justify-content-center" >
-        <ListNode number={1}/>
-        <ListNode number={2}/>
-        <ListNode number={3}/>
-        <ListNode number={4}/>
-        <ListNode number={5}/>
-        <ListNode number={6}/>
-        <ListNode number={7}/>
-        <ListNode number={8}/>
-        <ListNode number={9}/>
-        <ListNode number={10}/>
+      {data.map((num,index)=>{return (
+        <ListNode number={num} key={`${index}-array-list-node`}/>
+      )})}
+      <img src={listImg} style={listImgStyle}></img>
+      <h4 style={lengthPosition}>{data.length}</h4>
     </Container>
   )
 }
